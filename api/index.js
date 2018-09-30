@@ -2,15 +2,15 @@
 const graphQlFileLoader = require('./graphQLFileLoader.js');
 graphQlFileLoader.init();
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const expressGraphql = require('express-graphql');
-const { buildSchema } = require('graphql');
+import express from 'express';
+import bodyParser from 'body-parser';
+import expressGraphql from 'express-graphql';
+import { buildSchema } from 'graphql';
+import mongoose from 'mongoose';
 
+import { EventResolver } from './model/Event';
 const EventSchema = require('./model/Event.graphql');
-const EventModule = require('./model/Event');
 
-const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/work', { useNewUrlParser: true });
 
 const db = mongoose.connection;
@@ -29,8 +29,8 @@ const schema = buildSchema(`
 `);
 
 const root = {
-    events: EventModule.getEvents,
-    addEvent: EventModule.addEvent
+    events: EventResolver.getEvents,
+    addEvent: EventResolver.addEvent
 };
 
 const app = express();
@@ -46,5 +46,4 @@ app.use('/graphql', expressGraphql({
 
 db.once('open', async function () {
     app.listen(4000, () => console.log('Server running on localhost:4000/graphql'));
-
 });

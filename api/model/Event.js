@@ -1,25 +1,20 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const Event = new mongoose.model('Event', {
+export const Event = mongoose.model('Event', {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: { type: String, required: true },
-    eventDate: { type: Date, required: true }
+    eventDate: { type: String, required: true }
 });
 
-const EventResolver = {
+export const EventResolver = {
     getEvents: async () => {
         return await Event.find();
     },
-    addEvent: async ({firstName, lastName, email, eventName}) => {
-        const newEvent = new Event(firstName, lastName, email, eventName);
+    addEvent: async ({firstName, lastName, email, eventDate}) => {
+        const newEvent = new Event({ firstName, lastName, email, eventDate });
         await newEvent.save();
         return newEvent;
     }
 };
-
-module.exports.Event = Event;
-module.exports.getEvents = EventResolver.getEvents;
-module.exports.addEvent = EventResolver.addEvent;
-
 

@@ -6,15 +6,3 @@ export const Event = mongoose.model('Event', {
     email: { type: String, required: true },
     eventDate: { type: String, required: true }
 });
-
-export const EventResolver = {
-    getEvents: async () => {
-        return await Event.find();
-    },
-    addEvent: async ({firstName, lastName, email, eventDate}) => {
-        const newEvent = new Event({ firstName, lastName, email, eventDate });
-        await newEvent.save();
-        return newEvent;
-    }
-};
-

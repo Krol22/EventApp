@@ -7,8 +7,8 @@ var disconnected = chalk.bold.red;
 var termination = chalk.bold.magenta;
 
 export const connectToDb = function(){
-    const dbUrl = process.env.DB_URL;
-
+    const dbUrl = process.env.NODE_ENV === 'test' ? process.env.DB_TEST_URL : process.env.DB_URL;
+    
     mongoose.connect(dbUrl, { useNewUrlParser: true });
     mongoose.connection.on('disconnected', function(){
         console.log(disconnected("Mongoose default connection is disconnected"));

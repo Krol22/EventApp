@@ -10,7 +10,7 @@ import expressGraphql from 'express-graphql';
 import { buildSchema } from 'graphql';
 
 import { connectToDb } from './model/db';
-import { EventResolver } from './model/EventResolver';
+import { eventResolver } from './resolver/';
 const EventSchema = require('./model/Event.graphql');
 
 const schema = buildSchema(`
@@ -26,13 +26,13 @@ const schema = buildSchema(`
 `);
 
 const root = {
-    events: EventResolver.getEvents,
-    addEvent: EventResolver.addEvent
+    events: eventResolver.getEvents.bind(eventResolver),
+    addEvent: eventResolver.addEvent.bind(eventResolver)
 };
 
-async function init() {
-    const app = express();
+export const app = express();
 
+async function init() {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use('/graphql', expressGraphql({

@@ -1,14 +1,7 @@
-// automated tests for events
-
-// find events
-
-// add new event
-
-// checking validation
 import request from 'supertest';
 
 import { app } from '../../index.js';
-import { addData, removeData } from '../support/dbHelper';
+import { addData, removeData } from '../support/dbHelper.js';
 
 const agent = request.agent(app);
 

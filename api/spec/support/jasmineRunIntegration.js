@@ -5,7 +5,7 @@ const jasmine = new Jasmine();
 jasmine.loadConfig({
     spec_dir: 'spec',
     spec_files: [
-        '**/*.spec.js'
+        '**/*.test.js'
     ]
 });
 

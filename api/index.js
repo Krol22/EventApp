@@ -7,6 +7,7 @@ require('dotenv').config();
 import express from 'express';
 import bodyParser from 'body-parser';
 import expressGraphql from 'express-graphql';
+import cors from 'cors';
 import { buildSchema } from 'graphql';
 
 import { connectToDb } from './model/db';
@@ -33,6 +34,7 @@ const root = {
 export const app = express();
 
 async function init() {
+    app.use(cors());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use('/graphql', expressGraphql({

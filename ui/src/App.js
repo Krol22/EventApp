@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
+
+import { store } from './store';
+import { EventPage } from './Page/EventPage';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <p className="App-intro">
-          Hello world!
-        </p>
-      </div>
+      <Provider store={store}>
+        <EventPage></EventPage>
+      </Provider>
     );
   }
 }

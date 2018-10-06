@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomInput should render input with error when input has errors and was touched 1`] = `
+<div>
+  <div>
+    <input
+      className="error-input"
+      name="testInput"
+      type="text"
+    />
+  </div>
+  <div
+    className="error-msg"
+  >
+    * 
+    required
+  </div>
+</div>
+`;
+
+exports[`CustomInput should render properly input 1`] = `
+<div>
+  <div>
+    <input
+      className=""
+      name="testInput"
+      type="text"
+    />
+  </div>
+</div>
+`;

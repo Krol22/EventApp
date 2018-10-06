@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should properly render error notification 1`] = `
+<div
+  className="notification notification--error"
+>
+  <span
+    className="notification__message"
+  >
+    Your test error message
+  </span>
+</div>
+`;
+
+exports[`Notification should properly render success notification 1`] = `
+<div
+  className="notification notification--success"
+>
+  <span
+    className="notification__message"
+  >
+    Your test success message
+  </span>
+</div>
+`;

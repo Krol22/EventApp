@@ -3,3 +3,151 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto';
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  display: inline-block;
+}
+
+html, body {
+  text-align: center;
+  height: 100%;
+  background: #D09EA6; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #00695C, #6A1B9A); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #00695C, #6A1B9A); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #00695C, #6A1B9A); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #00695C, #6A1B9A); /* Standard syntax */
+  overflow-x: hidden;
+}
+
+.button {
+  transition: all .05s linear;
+  display: inline-block;
+  position: relative;
+  padding: 10px 40px;
+  background-color: #6A189A;
+  color: #FFF;
+  margin: 25px 0 10px 0;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 4px;
+
+  outline: none;
+  border: none;
+
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+}
+
+.button:focus,
+.button:active {
+  outline: none;
+}
+
+.button:active {
+  background-color: #00695C;
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
+  transform: translateY(1px);
+}
+
+.event-form {
+  display: inline-block;
+  background: #fff;
+  padding: 40px 30px;
+  margin-top: 140px;
+  width: 600px;
+  text-align: center;
+  border-radius: 3px;
+  position: relative;
+
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
+}
+
+.event-form input {
+  padding: 16px;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  width: 60%;
+  outline: none;
+}
+
+.event-form input:focus {
+  outline: none;
+}
+
+.event-form input::placeholder {
+  color: #aaa;
+}
+
+.event-form input.error-input::placeholder {
+  color: #555;
+}
+
+.event-form input.error-input { 
+  border: 1px solid #E57373;
+  background-color: #FFEBEE;
+}
+
+.event-form .error-msg {
+  position: absolute;
+  left: 25%;
+  transform: translateY(-15px);
+  color: #E57373;
+}
+
+.notification-list {
+  position: fixed;
+  top: 10px;
+  left: 100%;
+  text-align: center;
+  transform: translateX(-110%);
+}
+
+.notification {
+  display: inline-block;
+  background-color: #fff; 
+  width: 300px;
+  padding: 10px 12px;
+  border: 1px solid #fff;
+  margin-bottom: 5px;
+
+  text-align: left;
+
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+}
+
+.notification--success {
+  border: 1px solid #e8f5e9;
+  background-color: #b9f6ca;
+  color: #1b5e20;
+}
+
+.notification--error {
+  border: 1px solid #ffebee;
+  background-color: #ffcdd2;
+  color: #b71c1c;
+}
+
+.notification .notification__message {
+  font-size: .9rem;
+}
+
+/* UTILS */
+/* important are to be sure that when we use utils classes original properties will be overriden */
+
+.u-margin-bottom-50 {
+  margin-bottom: 50px !important; 
+}

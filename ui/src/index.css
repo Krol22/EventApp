@@ -151,3 +151,16 @@ html, body {
 .u-margin-bottom-50 {
   margin-bottom: 50px !important; 
 }
+
+/* MEDIA */
+
+@media (max-width: 600px) {
+  .event-form {
+    width: 400px;
+    padding: 40 10px;
+  }
+
+  .event-form input {
+    width: 80%;
+  }
+}

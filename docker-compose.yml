@@ -1,0 +1,36 @@
+version: '3'
+services: 
+    react-app:
+        container_name: react-app
+        image: react-app
+        build: ./ui
+        command: serve -s build
+        ports:
+            - "5000:5000"
+        depends_on:
+            - "express-app"
+    express-app:
+        container_name: express-app
+        image: express-app
+        build: ./api
+        command: node ./dist/entry.js
+        environment: 
+            - MONGO_INITDB_DATABASE=work
+        ports: 
+            - "4000:4000"
+        depends_on:
+            - "mongo"
+        links:
+            - "mongo"
+    mongo:
+        container_name: mongo
+        image: "mongo"
+        ports: 
+            - "27017:27017"
+    adminmongo:
+        container_name: adminmongo
+        image: "mrvautin/adminmongo"
+        ports:
+            - "1234:1234"
+        environment:
+            NODE_ENV: production

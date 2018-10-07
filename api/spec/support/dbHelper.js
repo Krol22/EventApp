@@ -4,7 +4,7 @@
 // create schema
 // add data
 
-import { Event } from '../../model/Event';
+import { Event } from '../../src/model/Event';
 
 export async function addData(){
     const eventsNum = 3;    

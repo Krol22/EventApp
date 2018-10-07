@@ -7,7 +7,15 @@ var disconnected = chalk.bold.red;
 var termination = chalk.bold.magenta;
 
 export const connectToDb = function(){
-    const dbUrl = process.env.NODE_ENV === 'test' ? process.env.DB_TEST_URL : process.env.DB_URL;
+    let dbUrl;
+    if(process.env.NODE_ENV === 'test') {
+        dbUrl = process.env.DB_TEST_URL;
+    } else if (process.env.NODE_ENV === 'prod') {
+        dbUrl = process.env.DB_PROD_URL;
+    } else {
+        dbUrl = process.env.DB_URL;
+    }
+
     
     mongoose.connect(dbUrl, { useNewUrlParser: true });
     mongoose.connection.on('disconnected', function(){

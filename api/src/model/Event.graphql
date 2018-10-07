@@ -1,0 +1,6 @@
+type Event {
+    firstName: String!
+    lastName: String!
+    email: String!
+    eventDate: String!
+}

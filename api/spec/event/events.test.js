@@ -1,6 +1,6 @@
 import request from 'supertest';
 
-import { app } from '../../index.js';
+import { app } from '../../src/index.js';
 import { addData, removeData } from '../support/dbHelper.js';
 
 const agent = request.agent(app);
